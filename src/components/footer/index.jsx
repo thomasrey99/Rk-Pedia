@@ -1,18 +1,14 @@
 "use client";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 const Footer = () => {
-    const router = useRouter();
     const currentYear = new Date().getFullYear();
 
     const navLinks = [
-        { name: "Home", path: "/" },
         { name: "Characters", path: "/characters" },
+        { name: "Episodes", path: "/episodes" }
     ];
-
-    const handleNavClick = (path) => {
-        router.push(path);
-    };
 
     return (
         <footer
@@ -27,16 +23,14 @@ const Footer = () => {
                             Navigation
                         </h3>
                         <ul className="flex flex-col gap-2 text-sm sm:text-[var(--grey)]">
-                            {navLinks.map((link) => (
-                                <li key={link.name}>
-                                    <button
-                                        onClick={() => handleNavClick(link.path)}
-                                        className="hover:text-[var(--green)] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--green)] rounded"
-                                        aria-label={`Ir a ${link.name}`}
-                                    >
-                                        {link.name}
-                                    </button>
-                                </li>
+                            {navLinks.map((link, i) => (
+                                <Link
+                                    key={i}
+                                    className="hover:text-[var(--yellow-orange)] transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-[var(--green)] rounded"
+                                    href={link.path}
+                                >
+                                    {link.name}
+                                </Link>
                             ))}
                         </ul>
                     </div>

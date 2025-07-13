@@ -6,13 +6,12 @@ export const getCharacters = async (url) => {
     return response
 };
 
-export const getEpisode = async (url) => {
+export const getCharactersById = async (url) => {
     try {
         const data = await fetch(url)
         const response = await data.json()
-        return response.name ?? ""
+        return response
     } catch (error) {
-        throw new Error(error?.message)
+        throw new Error(error.message)
     }
-
 }

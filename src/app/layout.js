@@ -1,3 +1,4 @@
+import ParticlesBackground from "@/components/background";
 import Footer from "../components/footer";
 import Header from "../components/header";
 import "./globals.css";
@@ -14,8 +15,9 @@ export default function RootLayout({ children }) {
         className={`bg-[var(--background)]  antialiased `}
       >
         <Header />
+        <ParticlesBackground />
         {children}
-        <Footer/>
+        <Footer />
       </body>
     </html>
   );

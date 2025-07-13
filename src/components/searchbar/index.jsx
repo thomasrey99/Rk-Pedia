@@ -2,14 +2,13 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const Searchbar = () => {
+const Searchbar = ({path, placeholder}) => {
   const router = useRouter();
   const [name, setName] = useState("");
-
   const handleSubmit = (e) => {
     e.preventDefault();
     const query = name.trim() ? `?name=${encodeURIComponent(name)}` : "";
-    router.push(`/characters${query}`);
+    router.push(`${path}${query}`);
   };
 
   return (
@@ -21,7 +20,7 @@ const Searchbar = () => {
       <div className="flex-1 flex items-center justify-center">
         <input
           type="text"
-          placeholder="Search character..."
+          placeholder={placeholder || "Search..."}
           className="w-full rounded-lg pl-8 sm:pl-12 pr-3 sm:pr-24 py-4 sm:py-3 bg-[var(--space)]/50 backdrop-blur-sm border border-[var(--solid)] text-white placeholder-[var(--grey)] focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all duration-200 text-xs sm:text-base"
           value={name}
           onChange={(e) => setName(e.target.value)}

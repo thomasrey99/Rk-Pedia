@@ -1,7 +1,7 @@
 "use client";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const Pagination = ({ pages }) => {
+const Pagination = ({ pages, path }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const currentPage = parseInt(searchParams.get("page") || "1", 10);
@@ -10,7 +10,7 @@ const Pagination = ({ pages }) => {
     if (page >= 1 && page <= pages) {
       const params = new URLSearchParams(searchParams);
       params.set("page", page.toString());
-      router.push(`/characters?${params.toString()}`);
+      router.push(`${path}?${params.toString()}`);
     }
   };
 

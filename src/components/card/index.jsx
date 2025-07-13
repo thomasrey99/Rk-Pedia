@@ -1,4 +1,6 @@
-import { getEpisode } from "@/app/characters/_actions";
+import { getEpisode } from "@/app/episodes/_actions";
+import Link from "next/link";
+
 
 const Card = async ({
   id,
@@ -22,7 +24,7 @@ const Card = async ({
 
   return (
     <article
-      className="flex flex-col sm:flex-row w-full max-w-[90%] sm:max-w-xl mx-auto bg-[var(--space)] rounded-xl overflow-hidden shadow-lg text-[var(--white)] hover:shadow-xl transition-shadow duration-200"
+      className="flex flex-col sm:flex-row w-full max-w-[90%] sm:max-w-xl mx-auto bg-[var(--space)]/80 rounded-xl overflow-hidden shadow-lg text-[var(--white)] hover:shadow-xl transition-shadow duration-200"
       aria-labelledby={`character-${id}-name`}
     >
       <div className="w-full sm:w-1/3">
@@ -55,7 +57,7 @@ const Card = async ({
         </div>
         <div>
           <p className="text-gray-400 text-xs sm:text-sm">First seen in:</p>
-          <p className="text-xs sm:text-base truncate">{episodeName || "Desconocido"}</p>
+          <Link href={`/episodes/${episodeName.id}`} className="text-xs hover:text-[var(--yellow-orange)] sm:text-base truncate">{episodeName?.name || "Desconocido"}</Link>
         </div>
       </div>
     </article>
