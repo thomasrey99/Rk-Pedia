@@ -1,6 +1,5 @@
 "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 
 const Footer = () => {
     const currentYear = new Date().getFullYear();
@@ -12,10 +11,10 @@ const Footer = () => {
 
     return (
         <footer
-            className="w-full text-[var(--white)] py-6 sm:py-10"
+            className="w-full max-w-[90%] mx-auto text-[var(--white)] py-6 sm:py-10"
             aria-label="Pie de página"
         >
-            <div className="max-w-6xl mx-auto px-4 sm:px-6">
+            <div className="px-4 sm:px-6">
                 <div className="flex flex-col sm:flex-row justify-between gap-6 sm:gap-8">
                     {/* Sección de Navegación */}
                     <div className="flex-1">

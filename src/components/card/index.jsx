@@ -36,12 +36,13 @@ const Card = async ({
       </div>
       <div className="w-full sm:w-2/3 p-2 sm:p-4 flex flex-col gap-2 sm:gap-4">
         <div>
-          <h2
+          <Link
+            href={`/characters/${id}`}
             id={`character-${id}-name`}
-            className="text-base sm:text-xl font-bold truncate"
+            className="text-base hover:text-[var(--yellow-orange)] sm:text-xl font-bold truncate"
           >
             {name}
-          </h2>
+          </Link>
           <p className="mt-1 text-xs sm:text-sm text-[var(--white)] flex items-center">
             <span
               className={`inline-block w-2 h-2 sm:w-3 sm:h-3 rounded-full ${statusColor} mr-2 animate-pulse`}
