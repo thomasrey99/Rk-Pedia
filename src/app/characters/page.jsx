@@ -3,12 +3,17 @@ import Searchbar from "@/components/searchbar";
 import { getCharacters } from "./_actions";
 import Card from "@/components/card";
 import Pagination from "@/components/pagination";
+import ParticlesBackground from "@/components/background";
 
-export default async function Characters() {
-    const characters = await getCharacters()
+export default async function Characters({ searchParams }) {
+    const name = await searchParams.name || ""
+    const page= await searchParams.page || ""
+    const url = "https://rickandmortyapi.com/api/character";
+    const characters = await getCharacters(`${url}?name=${name}&page=${page}`)
     return (
-        <div className="bg-[var(--space)] w-full min-h-screen py-10">
-            <Searchbar/>
+        <div className=" w-full min-h-screen">
+            <ParticlesBackground/>
+            <Searchbar />
             <div className="w-full flex flex-wrap items-center justify-center gap-10 py-10">
                 {
                     characters.body
@@ -27,7 +32,7 @@ export default async function Characters() {
                             }) => {
                                 return (
                                     <Card
-                                        key={id}
+                                        key={name}
                                         id={id}
                                         name={name}
                                         status={status}
@@ -45,7 +50,7 @@ export default async function Characters() {
                         ""
                 }
             </div>
-            <Pagination pages={characters?.info?.pages}/>
+            <Pagination pages={characters?.info?.pages || 1}/>
         </div>
     )
 }

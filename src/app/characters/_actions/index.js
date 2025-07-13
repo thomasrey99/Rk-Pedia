@@ -1,7 +1,7 @@
 "use server"
 import { customFetch } from "@/utils/customFetch";
-const url = "https://rickandmortyapi.com/api/character";
-export const getCharacters = async () => {
+
+export const getCharacters = async (url) => {
     const response = await customFetch(url);
     return response
 };
