@@ -28,8 +28,8 @@ export default async function Episode({ params }) {
 
     return (
         <div className="w-full min-h-screen flex flex-col">
-            <div className="w-full max-w-[90%] mx-auto py-6 sm:py-10">
-                <div className="rounded-xl shadow-lg p-4 sm:p-6">
+            <div className="w-full max-w-[90%] mx-auto py-6">
+                <div className="rounded-xl shadow-lg pb-4">
                     <h1 className="text-2xl sm:text-3xl font-bold text-[var(--white)] truncate">
                         {episode.name}
                     </h1>

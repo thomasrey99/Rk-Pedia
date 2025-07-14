@@ -24,7 +24,7 @@ const Card = async ({
 
   return (
     <article
-      className="flex flex-col sm:flex-row w-full max-w-[90%] sm:max-w-xl mx-auto bg-[var(--space)]/80 rounded-xl overflow-hidden shadow-lg text-[var(--white)] hover:shadow-xl transition-shadow duration-200"
+      className="bg-[var(--space)] flex flex-col sm:flex-row w-full max-w-[90%] sm:max-w-xl mx-auto rounded-xl overflow-hidden shadow-lg text-[var(--white)] hover:shadow-xl transition-shadow duration-200"
       aria-labelledby={`character-${id}-name`}
     >
       <div className="w-full sm:w-1/3">

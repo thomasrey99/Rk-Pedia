@@ -3,7 +3,7 @@ import Link from "next/link";
 const EpisodeCard = ({ id, name, air_date, episode, characters }) => {
     return (
         <article
-            className="flex flex-col w-full max-w-[90%] sm:max-w-xl mx-auto bg-[var(--space)]/80 rounded-xl overflow-hidden shadow-lg text-[var(--white)] hover:shadow-xl transition-shadow duration-200"
+            className="bg-[var(--space)] flex flex-col w-full max-w-[90%] sm:max-w-xl mx-auto rounded-xl overflow-hidden shadow-lg text-[var(--white)] hover:shadow-xl transition-shadow duration-200"
             aria-labelledby={`episode-${id}-name`}
         >
             <div className="p-3 sm:p-4 flex flex-col gap-2 sm:gap-3">

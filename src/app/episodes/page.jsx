@@ -11,7 +11,10 @@ export default async function Episodes({ searchParams }) {
 
     return (
         <div className=" w-full max-w-[90%] mx-auto">
-            <div className="grid py-10 gap-5 sm:grid-cols-1 lg:grid-cols-2 mt-3">
+            <div className="w-full px-5 font-bold">
+                <h2 className="text-3xl text-[var(--white)] text-start">Episodes</h2>
+            </div>
+            <div className="grid py-8 gap-5 sm:grid-cols-1 lg:grid-cols-2">
                 {
                     episodes.body
                         ?

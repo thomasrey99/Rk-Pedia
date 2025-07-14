@@ -15,16 +15,16 @@ const Searchbar = ({path, placeholder}) => {
     <form
       onSubmit={handleSubmit}
       className="w-full max-w-[90%] sm:max-w-xl mx-auto flex items-center py-10 gap-2 sm:gap-4 relative"
-      aria-label="Búsqueda de personajes"
+      aria-label={placeholder}
     >
       <div className="flex-1 flex items-center justify-center">
         <input
           type="text"
           placeholder={placeholder || "Search..."}
-          className="w-full rounded-lg pl-8 sm:pl-12 pr-3 sm:pr-24 py-4 sm:py-3 bg-[var(--space)]/50 backdrop-blur-sm border border-[var(--solid)] text-white placeholder-[var(--grey)] focus:outline-none focus:ring-2 focus:ring-green-600 focus:border-transparent transition-all duration-200 text-xs sm:text-base"
+          className="w-full rounded-lg pl-8 sm:pl-12 pr-3 sm:pr-24 py-4 sm:py-3 bg-[var(--space)]/50 backdrop-blur-sm border border-[var(--solid)] text-[var(--white)] placeholder-[var(--grey)] focus:outline-none focus:ring-2 focus:ring-[var(--green)] focus:border-transparent transition-all duration-200 text-xs sm:text-base"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          aria-label="Ingrese el nombre del personaje"
+          aria-label={placeholder}
         />
         <svg
           className="absolute left-2 sm:left-3 -translate-y-1/2 h-3 sm:h-5 w-3 sm:w-5 text-[var(--grey)]"
@@ -43,8 +43,8 @@ const Searchbar = ({path, placeholder}) => {
       </div>
       <button
         type="submit"
-        className="flex items-center gap-1 sm:gap-2 px-6 py-4 sm:py-3 rounded-lg bg-green-600 hover:bg-green-700 text-white font-semibold text-xs sm:text-base transition-all duration-200"
-        aria-label="Buscar personaje"
+        className="flex items-center gap-1 sm:gap-2 px-6 py-4 sm:py-3 rounded-lg bg-[var(--green)] text-[var(--white)] font-semibold text-xs sm:text-base transition-all duration-200"
+        aria-label={placeholder}
       >
         <span className="hidden sm:inline">Search</span>
         <svg

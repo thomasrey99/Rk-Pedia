@@ -53,7 +53,7 @@ const Pagination = ({ pages, path }) => {
       {/* Back page button */}
       <button
         onClick={() => goToPage(currentPage - 1)}
-        className="px-2 py-1 sm:px-3 sm:py-1 rounded-md bg-[var(--green)] text-[var(--white)] hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 text-sm sm:text-base"
+        className="px-2 py-1 sm:px-3 sm:py-1 rounded-md bg-[var(--green)] text-[var(--white)] hover:bg-green-600 enabled:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 text-sm sm:text-base"
         disabled={currentPage === 1}
         aria-label="Página anterior"
       >
@@ -83,7 +83,7 @@ const Pagination = ({ pages, path }) => {
       {/* next page button */}
       <button
         onClick={() => goToPage(currentPage + 1)}
-        className="px-2 py-1 sm:px-3 sm:py-1 rounded-md bg-[var(--green)] text-[var(--white)] hover:bg-gray-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 text-sm sm:text-base"
+        className="px-2 py-1 sm:px-3 sm:py-1 rounded-md bg-[var(--green)] text-[var(--white)] hover:bg-green-600 enabled:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed transition-colors duration-200 text-sm sm:text-base"
         disabled={currentPage === pages}
         aria-label="next page"
       >
