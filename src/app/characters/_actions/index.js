@@ -2,6 +2,7 @@
 import { customFetch } from "@/utils/customFetch";
 
 export const getCharacters = async (url) => {
+    console.log(url)
     const response = await customFetch(url);
     return response
 };
