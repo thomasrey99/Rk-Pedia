@@ -67,7 +67,7 @@ const Searchbar = ({ path, placeholder, Filters }) => {
         {/* Botón */}
         <button
           type="submit"
-          className="flex items-center justify-center px-5 py-3 rounded-lg bg-[var(--green)] text-[var(--white)] font-semibold text-sm sm:text-base whitespace-nowrap"
+          className="flex items-center justify-center px-5 py-3 rounded-lg bg-[var(--green)]/80 hover:bg-[var(--green)] cursor-pointer text-[var(--white)] font-semibold text-sm sm:text-base whitespace-nowrap"
           aria-label="Search"
         >
           <span className="hidden sm:inline">Search</span>

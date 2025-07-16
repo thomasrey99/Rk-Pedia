@@ -5,6 +5,7 @@ import FavoriteCharacterCard from "@/components/card/favorite";
 import Container from "@/components/container";
 import LoadingComponent from "@/components/loading";
 import { getFavorites } from "@/utils/getFavorites";
+import EmptyContent from "@/components/emptyContent";
 
 export default function Favorites() {
     const [favoriteIds, setFavoriteIds] = useState([]);
@@ -81,9 +82,7 @@ export default function Favorites() {
                     <FavoriteCharacterCard key={i} character={character} deleteFavorite={deleteFavorite}/>
                 ))
             ) : (
-                <div className="text-center text-gray-400 font-medium">
-                    No tienes personajes favoritos aún.
-                </div>
+                <EmptyContent/>
             )}
         </Container>
     );

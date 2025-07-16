@@ -2,8 +2,9 @@
 import { getCharacters } from "./_actions";
 import Card from "@/components/card";
 import Container from "@/components/container";
+import EmptyContent from "@/components/emptyContent";
 import Pagination from "@/components/pagination";
-import { getEpisode } from "../episodes/_actions";
+
 
 export default async function Characters({ searchParams }) {
   const { name, page, status, gender } = await searchParams;
@@ -16,21 +17,22 @@ export default async function Characters({ searchParams }) {
 
   const url = `https://rickandmortyapi.com/api/character?${params.toString()}`;
   const characters = await getCharacters(url);
-
-  // Obtener el primer episodio de cada personaje
   const characterList = characters.body || [];
 
   return (
     <>
       <Container title={"Characters"} isWraper={true}>
-        {characterList.map((character, index) => (
-          <Card
-            key={character.id}
-            character={character}
-          />
-        ))}
+        {characterList.length === 0 ? (
+          <EmptyContent />
+        ) : (
+          characterList.map((character) => (
+            <Card key={character.id} character={character} />
+          ))
+        )}
       </Container>
-      <Pagination pages={characters?.info?.pages || 1} path={"/characters"} />
+      {characterList.length > 0 && (
+        <Pagination pages={characters?.info?.pages || 1} path={"/characters"} />
+      )}
     </>
   );
 }

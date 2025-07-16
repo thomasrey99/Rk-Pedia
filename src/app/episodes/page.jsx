@@ -1,48 +1,40 @@
 import { getCharacters } from "../characters/_actions"
-import Pagination from "@/components/pagination";
-import EpisodeCard from "@/components/cardEpisode";
-import Container from "@/components/container";
+import Pagination from "@/components/pagination"
+import EpisodeCard from "@/components/cardEpisode"
+import Container from "@/components/container"
+import EmptyContent from "@/components/emptyContent"
+
 
 export default async function Episodes({ searchParams }) {
-    const name = await searchParams.name || ""
-    const page = await searchParams.page || ""
+    const name = searchParams.name || ""
+    const page = searchParams.page || ""
 
-    const url = "https://rickandmortyapi.com/api/episode";
+    const url = "https://rickandmortyapi.com/api/episode"
     const episodes = await getCharacters(`${url}?name=${name}&page=${page}`)
+
+    const episodeList = episodes.body || []
 
     return (
         <>
             <Container title={"Episodes"} isWraper={true}>
-                {
-                    episodes.body
-                        ?
-                        episodes.body.map((
-                            {
-                                id,
-                                name,
-                                air_date,
-                                episode,
-                                characters
-                            },
-                            i
-                        ) => {
-                            return (
-                                <EpisodeCard
-                                    key={i}
-                                    id={id}
-                                    name={name}
-                                    air_date={air_date}
-                                    episode={episode}
-                                    characters={characters}
-                                />
-                            )
-                        })
-                        :
-                        ""
-                }
+                {episodeList.length === 0 ? (
+                    <EmptyContent />
+                ) : (
+                    episodeList.map(({ id, name, air_date, episode, characters }) => (
+                        <EpisodeCard
+                            key={id}
+                            id={id}
+                            name={name}
+                            air_date={air_date}
+                            episode={episode}
+                            characters={characters}
+                        />
+                    ))
+                )}
             </Container>
-            <Pagination pages={episodes?.info?.pages || 1} path={"/episodes"} />
+            {episodeList.length > 0 && (
+                <Pagination pages={episodes?.info?.pages || 1} path={"/episodes"} />
+            )}
         </>
-
     )
 }
