@@ -47,7 +47,7 @@ const Pagination = ({ pages, path }) => {
 
   return (
     <nav
-      className="w-full max-w-[90%] mx-auto flex flex-wrap justify-center items-center gap-1 sm:gap-2 pt-10 pb-20"
+      className="w-full max-w-[90%] mx-auto flex flex-wrap justify-center items-center gap-1 sm:gap-2 pb-20"
       aria-label="Paginación"
     >
       {/* Back page button */}

@@ -8,9 +8,7 @@ const CharacterCardDetail = ({ character, episodes }) => {
     }[status] || "bg-[var(--grey)]");
     return (
         <div className="w-full sm:w-3/4 bg-[var(--space)] rounded-lg shadow-md border border-[var(--grey)]/30 p-2 sm:p-8">
-            {/* Imagen + Info */}
             <div className="flex flex-col sm:flex-row gap-2">
-                {/* Imagen */}
                 <div className="w-full sm:w-[200px] flex-shrink-0 mx-auto sm:mx-0">
                     <img
                         src={character.image}
@@ -20,8 +18,6 @@ const CharacterCardDetail = ({ character, episodes }) => {
                         className="w-[200px] h-[200px] object-cover rounded-md border border-[var(--yellow-orange)]/20"
                     />
                 </div>
-
-                {/* Info */}
                 <div className="w-full sm:flex-1 flex flex-col justify-start gap-1.5 mt-2 sm:mt-0">
                     <h1 className="text-base sm:text-lg font-semibold text-[var(--white)] leading-tight">
                         {character.name}
@@ -36,8 +32,6 @@ const CharacterCardDetail = ({ character, episodes }) => {
                             <span className="text-[var(--grey)]">({character.type})</span>
                         )}
                     </div>
-
-                    {/* Gender, Origin, Location justo debajo del status */}
                     <div className="text-xs sm:text-sm text-[var(--white)] space-y-1 mt-1">
                         <p>
                             Gender: <span className="font-semibold text-[var(--yellow-orange)]">{character.gender}</span>
@@ -62,8 +56,6 @@ const CharacterCardDetail = ({ character, episodes }) => {
                 </div>
             </div>
 
-
-            {/* Episodios */}
             <div className="mt-3">
                 <h2 className="text-xs sm:text-sm font-semibold text-[var(--grey)] mb-1">
                     Appears in Episodes

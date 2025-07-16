@@ -7,9 +7,10 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const links = [
+    { path: "/favorites", item: "Favorites" },
     { path: "/characters", item: "Characters" },
     { path: "/episodes", item: "Episodes" },
-    { path: "/locations", item: "Locations" },
+    { path: "/locations", item: "Locations" }
   ];
 
   const toggleMenu = () => setIsMenuOpen((prev) => !prev);
@@ -64,8 +65,8 @@ const Header = () => {
       {/* Logo */}
       <Image
         src="/portal.png"
-        width={200}
-        height={200}
+        width={250}
+        height={250}
         alt="portal"
         className="mt-4 sm:mt-0"
       />

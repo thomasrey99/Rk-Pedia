@@ -1,5 +1,5 @@
-"use server"
-export const customFetch = async (url) => {
+export const getFavorites = async (ids) => {
+    const url = `https://rickandmortyapi.com/api/character/${ids.join(", ")}`
     try {
         const data = await fetch(url)
         if (!data.ok) {
@@ -14,17 +14,17 @@ export const customFetch = async (url) => {
                 body: []
             }
         }
-        const { info = {}, results = [] } = await data.json();
-
+        const results = await data.json();
+        console.log(results)
         return {
             status: 200,
             error: false,
             message: "Solicitud procesada con exito",
             info: {
-                count: info?.count ?? null,
-                pages: info?.pages ?? null,
+                count: results.length || 0,
+                pages: null,
             },
-            body: results
+            body: Array.isArray(results) ? results : [results]
         }
 
     } catch (error) {
