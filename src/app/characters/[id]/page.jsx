@@ -3,6 +3,7 @@
 import { getCharactersById } from "../_actions";
 import Container from "@/components/container";
 import CharacterCardDetail from "@/components/card/detail";
+import RedirectButton from "@/components/redirectButton";
 
 async function fetchEpisodesByIds(episodeUrls) {
   const episodeIds = episodeUrls.map((url) => url.split("/").pop());
@@ -22,6 +23,7 @@ export default async function Character({ params }) {
   return (
     <Container title={`Character #${character.id}`}>
       <CharacterCardDetail character={character && character} episodes={episodes && episodes} />
+      <RedirectButton path={"/characters"} text={"Back to characters"}/>
     </Container>
 
   );

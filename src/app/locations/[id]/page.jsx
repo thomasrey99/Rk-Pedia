@@ -1,6 +1,7 @@
 import { getLocationById } from "../_actions";
 import Container from "@/components/container";
 import LocationCardDetail from "@/components/cardLocation/detail";
+import RedirectButton from "@/components/redirectButton";
 
 async function fetchResidents(residentsUrls) {
     const ids = residentsUrls.map((url) => url.split("/").pop()).join(",");
@@ -18,6 +19,7 @@ export default async function Location({ params }) {
     return (
         <Container title={`Location #${location.id}`}>
             <LocationCardDetail location={location} residents={residents}/>
+            <RedirectButton path={"/locations"} text={"Back to Locations"}/>
         </Container>
     );
 }

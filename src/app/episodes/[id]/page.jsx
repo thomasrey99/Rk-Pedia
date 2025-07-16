@@ -4,6 +4,7 @@ import { getEpisode } from "../_actions";
 import Card from "@/components/card";
 import Container from "@/components/container";
 import EpisodeCardDetail from "@/components/cardEpisode/detail";
+import RedirectButton from "@/components/redirectButton";
 
 export default async function Episode({ params }) {
     const { id } = params;
@@ -22,6 +23,7 @@ export default async function Episode({ params }) {
     return (
         <Container title={`Episode #${episode.id}`}>
             <EpisodeCardDetail episode={episode} characterList={characterList} />
+            <RedirectButton path={"/episodes"} text={"Back to Episodes"}/>
         </Container>
 
     );

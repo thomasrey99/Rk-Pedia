@@ -13,7 +13,7 @@ const Container = ({ children, title, isWraper }) => {
                     </div>
                 </section>
             ) : (
-                <section className="w-full flex items-center justify-center pb-10">
+                <section className="w-full flex flex-col items-center justify-center pb-10">
                     {children}
                 </section>
             )}
